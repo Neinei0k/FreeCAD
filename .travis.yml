@@ -273,12 +273,12 @@ install:
 ##
   - mkdir build && cd build && cmake -G"${GENERATOR}" ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} ../
 
-script: travis_wait
+script:
 ####
 #  Install FreeCAD and run unit tests.  Test failures will fail the build
 ##
 #        MSBuild.exe /m FreeCAD.sln
-  - |
+  - travis_wait |
     if [ "${TRAVIS_OS_NAME}" == "windows" ]; then
         # https://travis-ci.community/t/vcvarsall-bat-freezes-on-new-1809-based-windows-images/7098/6
         # call msbuild using clcache 
